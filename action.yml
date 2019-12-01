@@ -1,9 +1,10 @@
-- name: deploy-via-scp
-  uses: horochx/deploy-via-scp@v1.0.1
-  with:
-    local: . 
-    remote: ${{ secrets.REMOTE }} # eg: /home/github-action
-    host: ${{ secrets.HOST }} # eg: example.com
-    port: ${{ secrets.PORT }} # eg: 22
-    user: ${{ secrets.USER }} # eg: github-action
-    key: ${{ secrets.KEY }}
+name: deploy-via-scp
+description: deploy website using scp
+uses: horochx/deploy-via-scp@v1.0.1
+with:
+  local: . 
+  remote: ${{ secrets.REMOTE }} # eg: /home/github-action
+  host: ${{ secrets.HOST }} # eg: example.com
+  port: ${{ secrets.PORT }} # eg: 22
+  user: ${{ secrets.USER }} # eg: github-action
+  key: ${{ secrets.KEY }}
