@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: horochx/deploy-via-scp@master
       with:
-        local: "src" # eg: dist
+        local: src # eg: dist
         host: ${{ secrets.HOST }} # eg: example.com
         port: ${{ secrets.PORT }} # eg: 22
         user: ${{ secrets.USER }} # eg: github-action
