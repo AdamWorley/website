@@ -11,7 +11,6 @@ jobs:
     - uses: horochx/deploy-via-scp@master
       with:
         local: . # eg: dist
-#         remote: ${{ secrets.REMOTE }} # eg: /home/github-action
         host: ${{ secrets.HOST }} # eg: example.com
         port: ${{ secrets.PORT }} # eg: 22
         user: ${{ secrets.USER }} # eg: github-action
