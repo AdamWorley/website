@@ -1,21 +1,19 @@
 name: CI
-
 on: [push]
-
 jobs:
+
   build:
-
+    name: Deploy
     runs-on: ubuntu-latest
-
     steps:
     - name: SSH Deploy
-      uses: appleboy/ssh-action@v0.0.2
+      uses: appleboy/ssh-action@master
       with:
-       host: ${{ secrets.HOST }}
-       username: ${{ secrets.USER }}
-       password: ${{ secrets.PASSWORD }}
-       port: ${{ secrets.PORT }}
-       script: whoami
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: whoami
 #       with:
 #         local: . 
 #         remote: ${{ secrets.REMOTE }} # eg: /home/github-action
