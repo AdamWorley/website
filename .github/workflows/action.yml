@@ -2,17 +2,19 @@ name: CI
 on: [push]
 jobs:
 
+
+
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Deploy
-      uses: appleboy/scp-action@master
+    - uses: horochx/deploy-via-scp@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
+        local: . # eg: dist
+#         remote: ${{ secrets.REMOTE }} # eg: /home/github-action
+        host: ${{ secrets.HOST }} # eg: example.com
+        port: ${{ secrets.PORT }} # eg: 22
+        user: ${{ secrets.USER }} # eg: github-action
+        key: ${{ secrets.KEY }} 
         source: "./*"
-        target: "~/docker/website"
+        remote: "~/docker/website"
