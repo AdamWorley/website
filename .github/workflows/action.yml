@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Deploy
-      uses: horochx/deploy-via-scp@1.0.1
+      uses: horochx/deploy-via-scp@master
       with:
         local: "src" # eg: dist
         host: ${{ secrets.HOST }} # eg: example.com
