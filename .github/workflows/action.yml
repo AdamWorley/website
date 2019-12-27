@@ -6,11 +6,11 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Deploy
-    - uses: horochx/deploy-via-scp@1.0.1
+      uses: horochx/deploy-via-scp@1.0.1
       with:
-        local: src # eg: dist
+        local: "src" # eg: dist
         host: ${{ secrets.HOST }} # eg: example.com
         port: ${{ secrets.PORT }} # eg: 22
         user: ${{ secrets.USER }} # eg: github-action
