@@ -3,21 +3,16 @@ on: [push]
 jobs:
 
   build:
-    name: Deploy
+    name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: SSH Deploy
-      uses: appleboy/ssh-action@master
+    - uses: actions/checkout@master
+    - name: Deploy
+      uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
-        key: ${{ secrets.KEY }}
+        password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: whoami
-#       with:
-#         local: . 
-#         remote: ${{ secrets.REMOTE }} # eg: /home/github-action
-#         host: ${{ secrets.HOST }} # eg: example.com
-#         port: ${{ secrets.PORT }} # eg: 22
-#         user: ${{ secrets.USER }} # eg: github-action
-#         key: ${{ secrets.KEY }}
+        source: "."
+        target: "~/docker/website"
